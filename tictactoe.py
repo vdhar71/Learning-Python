@@ -9,6 +9,11 @@ board = [' '] * 10
 game_on = True
 result = ' '
 
+def banner():
+    print("#" * 60)
+    print(" TIC TAC TOE ")
+    print("#" * 60,"\n\n")
+
 def reset_board():
     """ reset_board: Initializes the board to blanks """
     global board, game_on
@@ -108,7 +113,7 @@ def player_choice(mark):
     # Check for win
     if winner(board,mark):
         clear_output()
-        display_board()
+#        display_board()
         result = mark + 'Congratulations! you won the game'
         game_on = False
 
@@ -129,6 +134,7 @@ def game():
     reset_board()
     global result
 
+    banner()
     p1 = player(validate_mark())
     if p1.mark == 'X':
         p2 = player('o')
