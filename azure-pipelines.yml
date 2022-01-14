@@ -20,14 +20,9 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: aquasecScanner@4
+    - task: Docker@2
       inputs:
-        image: 'centos:latest'
-        scanType: 'hosted'
-        register: false
-        hideBase: false
-        showNegligible: false
-        windowsScannerVersion: '4.2.0'
-        scanner: 'registry.aquasec.com/scanner:6.5'
-        registry: 'hub.docker.com'
-        connection: 'aquascanner'
+        containerRegistry: 'Docker-vdhar'
+        command: 'start'
+        arguments: '--image centos:latest --server https://df000251f1.cloud.aquasec.com/ --user --password *** --scanner registry.aquasec.com/scanner:6.5 --file-prefix AquaSecurity --scan-type local --registry --register true'
+    
