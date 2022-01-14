@@ -19,8 +19,4 @@ stages:
     displayName: Build
     pool:
       vmImage: ubuntu-latest
-    steps:
-    - task: Bash@3
-      inputs:
-        filePath: '/home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.14/dockerTask.sh'
-        arguments: '--image centos:latest --server https://df000251f1.cloud.aquasec.com/ --user --password 8a45a95e-fea4-4a71-9771-a76e3b00cdd9 --scanner registry.aquasec.com/scanner:6.5 --file-prefix AquaSecurity --scan-type hosted --registry hub.docker.com --register true --no-verify true --register-compliant true --custom-flags --direct-cc --image centos:latest --run-options -e AQUA_TOKEN=8a45a95e-fea4-4a71-9771-a76e3b00cdd9'
+    
