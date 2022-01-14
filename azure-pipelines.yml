@@ -23,7 +23,7 @@ stages:
     - task: aquasecScanner@4
       inputs:
         image: 'centos:latest'
-        scanType: 'local'
+        scanType: 'hosted'
         register: false
         hideBase: false
         showNegligible: false
