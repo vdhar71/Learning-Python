@@ -31,6 +31,6 @@ stages:
           scanner: 'registry.aquasec.com/scanner:6.5'
           runOptions: '-e AQUA_TOKEN=8a45a95e-fea4-4a71-9771-a76e3b00cdd9'
           registry: 'registry.aquasec.com'
-          connection: 'Aqua-scanner'
+          connection: 'Aqua-server'
           customFlags: '--direct-cc'
           caCertificates: true
