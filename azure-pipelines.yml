@@ -34,3 +34,17 @@ stages:
           connection: 'Aqua-server'
           customFlags: '--direct-cc'
           caCertificates: true
+      - task: aquasecScanner@4
+        inputs:
+          image: 'nginx:latest'
+          scanType: 'hosted'
+          register: false
+          hideBase: false
+          showNegligible: false
+          windowsScannerVersion: '4.2.0'
+          scanner: 'registry.aquasec.com/scanner:6.5'
+          runOptions: '-e AQUA_TOKEN=8d6cb121-7e2d-4cbd-9d4e-c5c99aa47d60'
+          registry: 'hub.docker.com'
+          connection: 'Aqua-server'
+          customFlags: '--direct-cc'
+          caCertificates: true
