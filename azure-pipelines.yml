@@ -19,13 +19,18 @@ stages:
     displayName: Build
     pool:
       vmImage: ubuntu-latest
-  - task: aquasecScanner@4
-    inputs:
-      image: 'centos:latest'
-      scanType: 'local'
-      register: false
-      hideBase: false
-      showNegligible: false
-      windowsScannerVersion: '4.2.0'
-      registry: 'registry.aquasec.com/scanner:6.5'
-      connection: 'Aqua-server'
+    steps:
+      - task: aquasecScanner@4
+        inputs:
+          image: 'centos:latest'
+          scanType: 'local'
+          register: false
+          hideBase: false
+          showNegligible: false
+          windowsScannerVersion: '4.2.0'
+          scanner: 'registry.aquasec.com/scanner:6.5'
+          runOptions: '-e AQUA_TOKEN=8a45a95e-fea4-4a71-9771-a76e3b00cdd9'
+          registry: 'registry.aquasec.com'
+          connection: 'Aqua-scanner'
+          customFlags: '--direct-cc'
+          caCertificates: true
