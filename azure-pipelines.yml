@@ -20,7 +20,11 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-      
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'Docker Hub'
+          command: 'pull'
+          arguments: centos:latest
       - task: DockerLogin@2
         inputs:
           containerRegistry: 'aquascanner'
@@ -34,5 +38,5 @@ stages:
           showNegligible: false
           windowsScannerVersion: '4.2.0'
           scanner: 'registry.aquasec.com/scanner:6.5'
-          registry: 'localhost'
+          registry: 'Docker Hub'
           connection: 'aquaconsole'
