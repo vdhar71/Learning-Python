@@ -34,5 +34,5 @@ stages:
           windowsScannerVersion: '4.2.0'
           scanner: 'registry.aquasec.com/scanner:6.5'
           runOptions: '-e AQUA_TOKEN=8d6cb121-7e2d-4cbd-9d4e-c5c99aa47d60'
-          registry: 'hub.docker.com'
+          registry: 'dhar'
           connection: 'aquascanner'
