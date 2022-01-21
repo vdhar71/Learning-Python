@@ -22,7 +22,7 @@ stages:
     steps:
       - task: Docker@2
         inputs:
-          containerRegistry: 'aquaregistry'
+          containerRegistry: 'aquascanner'
           command: 'login'
       - task: aquasecScanner@4
         inputs:
@@ -35,4 +35,4 @@ stages:
           scanner: 'registry.aquasec.com/scanner:6.5'
           runOptions: '-e AQUA_TOKEN=8d6cb121-7e2d-4cbd-9d4e-c5c99aa47d60'
           registry: 'dhar'
-          connection: 'aquascanner'
+          connection: 'aquaconsole'
