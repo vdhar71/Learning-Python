@@ -20,24 +20,14 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-      - task: aquasecScanner@4
+      - task: Docker@2
         inputs:
-          image: 'centos:latest'
-          scanType: 'local'
-          register: false
-          hideBase: false
-          showNegligible: false
-          windowsScannerVersion: '4.2.0'
-          scanner: 'registry.aquasec.com/scanner:6.5'
-          runOptions: '-e AQUA_TOKEN=8a45a95e-fea4-4a71-9771-a76e3b00cdd9'
-          registry: 'registry.aquasec.com'
-          connection: 'Aqua-server'
-          customFlags: '--direct-cc'
-          caCertificates: true
+          containerRegistry: 'aquaregistry'
+          command: 'login'
       - task: aquasecScanner@4
         inputs:
           image: 'nginx:latest'
-          scanType: 'hosted'
+          scanType: 'local'
           register: false
           hideBase: false
           showNegligible: false
@@ -45,6 +35,4 @@ stages:
           scanner: 'registry.aquasec.com/scanner:6.5'
           runOptions: '-e AQUA_TOKEN=8d6cb121-7e2d-4cbd-9d4e-c5c99aa47d60'
           registry: 'hub.docker.com'
-          connection: 'Aqua-server'
-          customFlags: '--direct-cc'
-          caCertificates: true
+          connection: 'aquascanner'
